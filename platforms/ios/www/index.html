@@ -129,8 +129,10 @@
 				event: { touchstart: card1_hold_toggle },
 				click: card1_hold_toggle
 			">
-				<div class="value" data-bind="text: card1_value_symbol, visible: card_front_visible"></div>
-				<div class="suit" data-bind="visible: card_front_visible"></div>
+				<div class="card-inner">
+					<div class="value" data-bind="text: card1_value_symbol, visible: card_front_visible"></div>
+					<div class="suit" data-bind="visible: card_front_visible"></div>
+				</div>
 			</div>
 			<button data-bind="
 				click: card1_hold_toggle,
@@ -145,8 +147,10 @@
 				event: { touchstart: card2_hold_toggle },
 				click: card2_hold_toggle
 			">
-				<div class="value" data-bind="text: card2_value_symbol, visible: card_front_visible"></div>
-				<div class="suit" data-bind="visible: card_front_visible"></div>
+				<div class="card-inner">
+					<div class="value" data-bind="text: card2_value_symbol, visible: card_front_visible"></div>
+					<div class="suit" data-bind="visible: card_front_visible"></div>
+				</div>
 			</div>
 			<button data-bind="
 				click: card2_hold_toggle,
@@ -161,8 +165,10 @@
 				event: { touchstart: card3_hold_toggle },
 				click: card3_hold_toggle
 			">
-				<div class="value" data-bind="text: card3_value_symbol, visible: card_front_visible"></div>
-				<div class="suit" data-bind="visible: card_front_visible"></div>
+				<div class="card-inner">
+					<div class="value" data-bind="text: card3_value_symbol, visible: card_front_visible"></div>
+					<div class="suit" data-bind="visible: card_front_visible"></div>
+				</div>
 			</div>
 			<button data-bind="
 				click: card3_hold_toggle,
@@ -177,8 +183,10 @@
 				event: { touchstart: card4_hold_toggle },
 				click: card4_hold_toggle
 			">
-				<div class="value" data-bind="text: card4_value_symbol, visible: card_front_visible"></div>
-				<div class="suit" data-bind="visible: card_front_visible"></div>
+				<div class="card-inner">
+					<div class="value" data-bind="text: card4_value_symbol, visible: card_front_visible"></div>
+					<div class="suit" data-bind="visible: card_front_visible"></div>
+				</div>
 			</div>
 			<button data-bind="
 				click: card4_hold_toggle,
@@ -193,8 +201,10 @@
 				event: { touchstart: card5_hold_toggle },
 				click: card5_hold_toggle
 			">
-				<div class="value" data-bind="text: card5_value_symbol, visible: card_front_visible"></div>
-				<div class="suit" data-bind="visible: card_front_visible"></div>
+				<div class="card-inner">
+					<div class="value" data-bind="text: card5_value_symbol, visible: card_front_visible"></div>
+					<div class="suit" data-bind="visible: card_front_visible"></div>
+				</div>
 			</div>
 			<button data-bind="
 				click: card5_hold_toggle,
@@ -213,7 +223,7 @@
 		<button data-bind="click: incrementBet, event: { touchend: incrementBet }">Bet <span data-bind="text: bet">1</span></button>
 	</div>
 
-	<div class="message"><span data-bind="text: max_credits_message"></span> <span class="text-right">Hands Played: <span data-bind="text: hands_played"></span></span></div>
+	<div class="message bottom"><span data-bind="text: max_credits_message"></span> <span class="text-right">Hands Played: <span data-bind="text: hands_played"></span></span></div>
 </div>
 	<script defer="defer"  src="bundle.js"></script>
 </body>

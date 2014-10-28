@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F4F33EB6-1337-48E0-8496-D0BFB105CCAB</string>
+	<string>A1B92288-22A0-46E8-BF8C-A067DC8494A5</string>
 	<key>IDESourceControlProjectName</key>
 	<string>VideoPoker</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -22,7 +22,7 @@
 		<key>3A0524C717AEA7C34D772D65D426CA5A14AE33C3</key>
 		<string>../../../..</string>
 		<key>F6634B7AA07DEDE18740D6779263DF4935422FEB</key>
-		<string>../../../../../www</string>
+		<string>../../../..www/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:Hyprtxt/poker-app.git</string>
@@ -38,7 +38,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>3A0524C717AEA7C34D772D65D426CA5A14AE33C3</string>
 			<key>IDESourceControlWCCName</key>
-			<string>poker</string>
+			<string>poker_cordova</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

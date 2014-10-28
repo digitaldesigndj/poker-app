@@ -20,9 +20,8 @@
 //  main.m
 //  VideoPoker
 //
-//  Created by ___FULLUSERNAME___ on ___DATE___.
-//  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
-//
+//  Created by ___Taylor___ on ___10/17/2014___.
+//  Copyright ___Hyprtxt___ ___2014___. MIT Licensed //
 
 #import <UIKit/UIKit.h>
 

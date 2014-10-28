@@ -22,7 +22,7 @@
 		<key>3A0524C717AEA7C34D772D65D426CA5A14AE33C3</key>
 		<string>../../../..</string>
 		<key>F6634B7AA07DEDE18740D6779263DF4935422FEB</key>
-		<string>../../../..www/</string>
+		<string>../../../..www</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:Hyprtxt/poker-app.git</string>
@@ -46,7 +46,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>F6634B7AA07DEDE18740D6779263DF4935422FEB</string>
 			<key>IDESourceControlWCCName</key>
-			<string>www</string>
+			<string>poker_cordovawww</string>
 		</dict>
 	</array>
 </dict>

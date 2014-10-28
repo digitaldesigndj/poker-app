@@ -13029,10 +13029,12 @@ var $     = require( 'jquery-browserify' ),
 // Frontend display bindings
 
 $('.tab-scoring').on('click', function(){
-	$('table').slideToggle(1000);
+	$('.scoring').slideToggle(1000);
 });
 
-$('table').hide();
+$('.scoring').hide();
+
+
 
 poker.max_credits_message = ko.dependentObservable( function(){
 	var message = "Max Credits Obtained: ";
@@ -13293,15 +13295,15 @@ poker.numerical_values = ko.dependentObservable( function(){
 
 },{"../poker.js":10,"jquery-browserify":1,"knockout":2}],8:[function(require,module,exports){
 module.exports = {
-	deck: [],
+	cards: [],
 	init: function(){
 		self = this;
 		// Remove all the cards from the deck
-		self.deck = [];
+		self.cards = [];
 		// Adds cards to the deck
 		self.setupCards();
 		// Shuffle the deck
-		self.deck = self.shuffle( self.deck );
+		self.cards = self.shuffle( self.cards );
 	},
 	setupCards: function(){
 		var self   = this,
@@ -13309,7 +13311,7 @@ module.exports = {
 			values = ['ace', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king'];
 		for ( var suit_index = 0; suit_index < suits.length; suit_index++ ){
 			for ( var value_index = 0; value_index < values.length; value_index++ ){
-				self.deck.push( {'suit': suits[suit_index],'value': values[value_index]} )
+				self.cards.push( {'suit': suits[suit_index],'value': values[value_index]} )
 			}
 		}
 	},
@@ -13343,12 +13345,12 @@ module.exports = {
 },{}],10:[function(require,module,exports){
 var $       = require('jquery-browserify'),
 	ko      = require('knockout'),
-	Cards   = require('./cards.js');
+	Deck   = require('./deck.js');
 	Storage = require('./localStorageValue.js');
 
-Cards.init();
+Deck.init();
 
-var five_cards = Cards.deck.splice(0, 5);
+var five_cards = Deck.cards.splice(0, 5);
 var saved_credits = 0;
 saved_credits = Storage.getLocalStorageValue('credits', 100);
 max_credits = Storage.getLocalStorageValue('max_credits', 100);
@@ -13425,31 +13427,53 @@ module.exports = {
 		if( !self.draw_visible() ){
 			return;
 		}
+
 		if( !self.card1_hold() ){
-			var card = Cards.deck.splice( 0, 1 );
-			self.card1_suit( card[0].suit );
-			self.card1_value( card[0].value );
+			self.card1_suit( 'undefined' );
+			self.card1_value( '' );
+			setTimeout( function() {
+				var card = Deck.cards.splice( 0, 1 );
+				self.card1_suit( card[0].suit );
+				self.card1_value( card[0].value );
+			}, 600 );
 		}
 		if( !self.card2_hold() ){
-			var card = Cards.deck.splice( 0, 1 );
-			self.card2_suit( card[0].suit );
-			self.card2_value( card[0].value );
+			self.card2_suit( 'undefined' );
+			self.card2_value( '' );
+			setTimeout( function() {
+				var card = Deck.cards.splice( 0, 1 );
+				self.card2_suit( card[0].suit );
+				self.card2_value( card[0].value );
+			}, 600 );
 		}
 		if( !self.card3_hold() ){
-			var card = Cards.deck.splice( 0, 1 );
-			self.card3_suit( card[0].suit );
-			self.card3_value( card[0].value );
+			self.card3_suit( 'undefined' );
+			self.card3_value( '' );
+			setTimeout( function() {
+				var card = Deck.cards.splice( 0, 1 );
+				self.card3_suit( card[0].suit );
+				self.card3_value( card[0].value );
+			}, 600 );
 		}
 		if( !self.card4_hold() ){
-			var card = Cards.deck.splice( 0, 1 );
-			self.card4_suit( card[0].suit );
-			self.card4_value( card[0].value );
+			self.card4_suit( 'undefined' );
+			self.card4_value( '' );
+			setTimeout( function() {
+				var card = Deck.cards.splice( 0, 1 );
+				self.card4_suit( card[0].suit );
+				self.card4_value( card[0].value );
+			}, 600 );
 		}
 		if( !self.card5_hold() ){
-			var card = Cards.deck.splice( 0, 1 );
-			self.card5_suit( card[0].suit );
-			self.card5_value( card[0].value );
+			self.card5_suit( 'undefined' );
+			self.card5_value( '' );
+			setTimeout( function() {
+				var card = Deck.cards.splice( 0, 1 );
+				self.card5_suit( card[0].suit );
+				self.card5_value( card[0].value );
+			}, 600 );
 		}
+
 		self.draw_visible( false );
 		self.new_game_visible( true );
 
@@ -13459,7 +13483,9 @@ module.exports = {
 		self.card4_hold( false );
 		self.card5_hold( false );
 
-		self.scoring();
+		setTimeout( function() {
+			self.scoring();
+		}, 1000 );
 	},
 	incrementBet: function(){
 		self = this;
@@ -13470,11 +13496,12 @@ module.exports = {
 	},
 	newGame: function(){
 		var self = this,
-			five_new_cards = [];
+			five_new_cards = []
+			delay = 100;
 		if( self.credits() >= self.bet() ){
 			self.hands_played( self.hands_played() + 1 );
 			self.credits( self.credits() - self.bet() );
-			Cards.init();
+			Deck.init();
 
 			this.card1_hold(false);
 			this.card2_hold(false);
@@ -13482,22 +13509,47 @@ module.exports = {
 			this.card4_hold(false);
 			this.card5_hold(false);
 
-			five_new_cards = Cards.deck.splice(0, 5);
+			five_new_cards = Deck.cards.splice(0, 5);
 
-			self.card1_suit( five_new_cards[0].suit );
-			self.card1_value( five_new_cards[0].value );
+			setTimeout( function() {
 
-			self.card2_suit( five_new_cards[1].suit );
-			self.card2_value( five_new_cards[1].value );
+				self.card1_suit( 'undefined' );
+				self.card1_value( '' );
+				self.card2_suit( 'undefined' );
+				self.card2_value( '' );
+				self.card3_suit( 'undefined' );
+				self.card3_value( '' );
+				self.card4_suit( 'undefined' );
+				self.card4_value( '' );
+				self.card5_suit( 'undefined' );
+				self.card5_value( '' );
 
-			self.card3_suit( five_new_cards[2].suit );
-			self.card3_value( five_new_cards[2].value );
+				setTimeout( function() {
+					self.card1_suit( five_new_cards[0].suit );
+					self.card1_value( five_new_cards[0].value );
+				}, 3 * delay );
 
-			self.card4_suit( five_new_cards[3].suit );
-			self.card4_value( five_new_cards[3].value );
+				setTimeout( function() {
+					self.card2_suit( five_new_cards[1].suit );
+					self.card2_value( five_new_cards[1].value );
+				}, 4 * delay );
 
-			self.card5_suit( five_new_cards[4].suit );
-			self.card5_value( five_new_cards[4].value );
+				setTimeout( function() {
+					self.card3_suit( five_new_cards[2].suit );
+					self.card3_value( five_new_cards[2].value );
+				}, 5 * delay );
+
+				setTimeout( function() {
+					self.card4_suit( five_new_cards[3].suit );
+					self.card4_value( five_new_cards[3].value );
+				}, 6 * delay );
+
+				setTimeout( function() {
+					self.card5_suit( five_new_cards[4].suit );
+					self.card5_value( five_new_cards[4].value );
+				}, 7 * delay );
+
+			}, 2 * delay );
 
 			self.draw_visible( true );
 			self.new_game_visible( false );
@@ -13608,5 +13660,5 @@ module.exports = {
 	}
 };
 
-},{"./cards.js":8,"./localStorageValue.js":9,"jquery-browserify":1,"knockout":2}]},{},[3])
+},{"./deck.js":8,"./localStorageValue.js":9,"jquery-browserify":1,"knockout":2}]},{},[3])
 ;

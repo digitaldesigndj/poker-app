@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.hyprtxt.poker" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.hyprtxt.poker" version="0.6.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
 	<name>VideoPoker</name>
 	<description>
 		My first phone app, Video Poker
@@ -13,7 +13,7 @@
 	<preference name="DisallowOverscroll" value="true" />
 	<preference name="Fullscreen" value="true" />
 	<preference name="Orientation" value="landscape" />
-	<preference name="BackgroundColor" value="0xff00ccff"/>
+	<preference name="BackgroundColor" value="0xff0000ff"/>
 	<platform name="ios">
 		<!-- iOS 7.0+ -->
 		<!-- iPhone / iPod Touch  -->

@@ -6,6 +6,7 @@
 	</description>
 	<author email="taylor@hyprtxt.com" href="http://hyprtxt.com">
 		Hyprtxt
+
 	</author>
 	<content src="index.html" />
 	<access origin="*" />

@@ -13492,6 +13492,7 @@ module.exports = {
 			}, 1000 );
 		}
 
+		self.hold_visible( false );
 		self.draw_visible( false );
 
 		self.card1_hold( false );
